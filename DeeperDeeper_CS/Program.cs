@@ -1,4 +1,6 @@
-﻿namespace DeeperDeeper
+﻿using Raylib_cs;
+
+namespace DeeperDeeper
 {
     public class Program
     {
