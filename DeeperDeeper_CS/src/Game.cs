@@ -24,8 +24,10 @@ namespace DeeperDeeper_CS
             while (!WindowShouldClose())
             {
                 BeginDrawing();
+                ClearBackground(Color.BLACK);
 
                 player.Draw();
+                player.Move();
                 
                 EndDrawing();
             }

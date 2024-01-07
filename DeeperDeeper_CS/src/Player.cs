@@ -7,7 +7,7 @@ namespace DeeperDeeper_CS
     class Player : Entity
     {
         public float radius = 40.0f;
-        public float moveSpeed = 7.0f;
+        public float moveSpeed = 0.07f;
 
         public Player(Vector2 pos, float radius, Color color)
         {
