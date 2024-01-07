@@ -7,10 +7,21 @@ namespace DeeperDeeper_CS
 {
     class Player : IEntity
     {
-        public Vector3 Position { get; set; }
+        public Vector2 Position { get; set; }
+        public Color color;
+
+        public float radius = 40.0f;
+
+        public Player(Vector2 pos, float radius, Color color)
+        {
+            this.Position = pos;
+            this.radius = radius;
+            this.color = color;
+        }
+
         public void Draw()
         {
-
+            DrawCircle((int)this.Position.X, (int)this.Position.Y, this.radius, this.color);
         }
     }
 }

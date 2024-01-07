@@ -6,7 +6,8 @@ namespace DeeperDeeper_CS.Interfaces
 {
     public interface IEntity
     {
-        public Vector3 Position { get; set; }
+        public Vector2 Position { get; set; }
+
         public void Draw();
     }
 }
