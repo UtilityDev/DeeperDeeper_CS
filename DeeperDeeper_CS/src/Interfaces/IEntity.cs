@@ -2,7 +2,7 @@
 using Raylib_cs;
 using static Raylib_cs.Raylib;
 
-namespace DeeperDeeper_CS
+namespace DeeperDeeper_CS.Interfaces
 {
     public interface IEntity
     {
