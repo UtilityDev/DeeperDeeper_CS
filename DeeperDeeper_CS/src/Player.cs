@@ -7,19 +7,20 @@ namespace DeeperDeeper_CS
     class Player : Entity
     {
         public float radius = 40.0f;
-        public float moveSpeed = 0.07f;
+        public float moveSpeed;
 
-        public Player(Vector2 pos, float radius, Color color)
+        public Player(Vector2 pos, float radius, float moveSpeed, Color color)
         {
             this.position = pos;
             this.radius = radius;
+            this.moveSpeed = moveSpeed;
             this.color = color;
         }
 
         public void Move()
         {
-            if (IsKeyDown(KeyboardKey.KEY_A)) { this.position.X -= this.moveSpeed; }
-            if (IsKeyDown(KeyboardKey.KEY_D)) { this.position.X += this.moveSpeed; }
+            if (IsKeyDown(KeyboardKey.KEY_A)) { this.position.X -= this.moveSpeed * GetFrameTime(); }
+            if (IsKeyDown(KeyboardKey.KEY_D)) { this.position.X += this.moveSpeed * GetFrameTime(); }
         }
 
         public override void Draw()

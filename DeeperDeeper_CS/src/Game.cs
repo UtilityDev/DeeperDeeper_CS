@@ -13,11 +13,13 @@ namespace DeeperDeeper_CS
         public void Run()
         {
             InitWindow(WIDTH, HEIGHT, TITLE);
+            SetTargetFPS(60);
 
             // Player
             Player player = new (
                 pos: new Vector2((WIDTH / 2) - 20, 80),
                 radius: 20.0f,
+                moveSpeed: 500.0f,
                 color: Color.RED
             );
 
