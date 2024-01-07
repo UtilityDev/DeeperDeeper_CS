@@ -28,6 +28,8 @@ namespace DeeperDeeper_CS
                 BeginDrawing();
                 ClearBackground(Color.BLACK);
 
+                DrawText("FPS: " + GetFPS().ToString(), 20, 20, 48, Color.WHITE);
+
                 player.Draw();
                 player.Move();
                 
