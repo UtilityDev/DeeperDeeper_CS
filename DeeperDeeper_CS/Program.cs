@@ -1,8 +1,8 @@
 ﻿using Raylib_cs;
 
-namespace DeeperDeeper
+namespace DeeperDeeper_CS
 {
-    public class Program
+    class Program
     {
         static void Main()
         {
