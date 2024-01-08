@@ -10,6 +10,10 @@ namespace DeeperDeeper_CS
         const int       HEIGHT  = 720;
         const string    TITLE   = "Deeper & Deeper!";
 
+        List<Block> blocks = new List<Block>();
+
+        Random rand = new Random(DateTime.Now.Millisecond);
+
         public void Run()
         {
             InitWindow(WIDTH, HEIGHT, TITLE);
@@ -23,16 +27,28 @@ namespace DeeperDeeper_CS
                 color: Color.RED
             );
 
+            for (int i = 0; i < 22; i++)
+            {
+                blocks.Add(new Block(new Vector2(rand.Next(50, WIDTH - 50), HEIGHT + rand.Next(3, 750)), 100, 300, Color.BLUE));
+            }
+
             while (!WindowShouldClose())
             {
                 BeginDrawing();
                 ClearBackground(Color.BLACK);
 
-                DrawText("FPS: " + GetFPS().ToString(), 20, 20, 48, Color.WHITE);
-
                 player.Draw();
                 player.Move();
-                
+
+                foreach (Block block in blocks)
+                {
+                    block.Draw();
+                    block.Fall();
+
+                    if (block.position.Y < -200)
+                        block.position.Y = HEIGHT;
+                }
+
                 EndDrawing();
             }
 
