@@ -60,7 +60,10 @@ namespace DeeperDeeper_CS
 
                     // If out of bounds, reset position back down
                     if (block.position.Y < -200)
+                    {
                         block.position.Y = HEIGHT;
+                        block.position.X = rand.Next(50, WIDTH - 50);
+                    }
                 }
 
                 // End loop
