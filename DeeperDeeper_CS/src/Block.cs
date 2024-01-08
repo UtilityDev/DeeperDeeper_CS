@@ -4,6 +4,9 @@ using static Raylib_cs.Raylib;
 
 namespace DeeperDeeper_CS
 {
+    /// <summary>
+    /// The block class handles everything related to blocks, except block spawning
+    /// </summary>
     public class Block : Entity
     {
         // Block-specific properties

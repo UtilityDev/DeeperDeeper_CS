@@ -4,6 +4,9 @@ using static Raylib_cs.Raylib;
 
 namespace DeeperDeeper_CS
 {
+    /// <summary>
+    /// The player class handles everything related to the player; movement, drawing, and player-specific properties
+    /// </summary>
     class Player : Entity
     {
         // Player-specific properties

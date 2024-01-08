@@ -4,6 +4,9 @@ using static Raylib_cs.Raylib;
 
 namespace DeeperDeeper_CS
 {
+    /// <summary>
+    /// The game class holds all game logic
+    /// </summary>
     public sealed class Game
     {
         // Window properties
