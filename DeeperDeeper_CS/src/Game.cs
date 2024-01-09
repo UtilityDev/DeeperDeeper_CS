@@ -20,6 +20,24 @@ namespace DeeperDeeper_CS
         // Random object
         Random rand = new Random(DateTime.Now.Millisecond);
 
+        // Player
+        Player player = new (
+            pos: new Vector2((WIDTH / 2) - 20, 80),
+            radius: 20.0f,
+            moveSpeed: 500.0f,
+            color: Color.RED
+        );
+
+        // Restart game
+        public void Restart()
+        {
+            player.position.X = (WIDTH / 2) - player.radius / 2;
+            foreach (Block block in blocks)
+            {
+                block.position.Y = HEIGHT + rand.Next(250, 600);
+            }
+        }
+
         // Run game
         public void Run()
         {
@@ -27,15 +45,8 @@ namespace DeeperDeeper_CS
             InitWindow(WIDTH, HEIGHT, TITLE);
             SetTargetFPS(60);
 
-            // Player
-            Player player = new (
-                pos: new Vector2((WIDTH / 2) - 20, 80),
-                radius: 20.0f,
-                moveSpeed: 500.0f,
-                color: Color.RED
-            );
 
-            // Player collision rectangle
+            // Player collision box
             Rectangle playerCol = new Rectangle(player.position.X - player.radius / 2, player.position.Y - player.radius / 2, 40, 40);
 
             // Spawn 22 blocks
@@ -54,6 +65,7 @@ namespace DeeperDeeper_CS
                 player.Draw();
                 player.Move();
 
+                // Player collision box
                 playerCol.X = player.position.X - player.radius;
                 playerCol.Y = player.position.Y - player.radius;
                 DrawRectangleRec(playerCol, Color.BLANK);
@@ -72,9 +84,10 @@ namespace DeeperDeeper_CS
                         block.position.X = rand.Next(50, WIDTH - 50);
                     }
 
+                    // Check collision between Block rect and player collision box
                     if (CheckCollisionRecs(playerCol, new Rectangle(block.position.X, block.position.Y, block.length, 20)))
                     {
-                        Console.WriteLine("Dead!");
+                        Restart();
                     }
                 }
 
