@@ -34,7 +34,8 @@ namespace DeeperDeeper_CS
             player.position.X = (WIDTH / 2) - player.radius / 2;
             foreach (Block block in blocks)
             {
-                block.position.Y = HEIGHT + rand.Next(250, 600);
+                block.position.Y = HEIGHT + rand.Next(0, 800);
+                block.position.X = rand.Next(50, WIDTH - 50);
             }
         }
 
