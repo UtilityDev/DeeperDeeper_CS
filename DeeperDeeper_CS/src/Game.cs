@@ -35,6 +35,9 @@ namespace DeeperDeeper_CS
                 color: Color.RED
             );
 
+            // Player collision rectangle
+            Rectangle playerCol = new Rectangle(player.position.X - player.radius / 2, player.position.Y - player.radius / 2, 40, 40);
+
             // Spawn 22 blocks
             for (int i = 0; i < 22; i++)
             {
@@ -51,6 +54,10 @@ namespace DeeperDeeper_CS
                 player.Draw();
                 player.Move();
 
+                playerCol.X = player.position.X - player.radius;
+                playerCol.Y = player.position.Y - player.radius;
+                DrawRectangleRec(playerCol, Color.BLANK);
+
                 // Loop through every block in 'Blocks' List
                 foreach (Block block in blocks)
                 {
@@ -63,6 +70,11 @@ namespace DeeperDeeper_CS
                     {
                         block.position.Y = HEIGHT;
                         block.position.X = rand.Next(50, WIDTH - 50);
+                    }
+
+                    if (CheckCollisionRecs(playerCol, new Rectangle(block.position.X, block.position.Y, block.length, 20)))
+                    {
+                        Console.WriteLine("Dead!");
                     }
                 }
 
