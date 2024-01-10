@@ -14,6 +14,13 @@ namespace DeeperDeeper_CS
         const int       HEIGHT  = 720;
         const string    TITLE   = "Deeper & Deeper!";
 
+        // Score counter
+        int score = 0;
+        float timeBtwScore = 10f;
+
+        // Time counter
+        float counter = 0;
+
         // List of blocks
         List<Block> blocks = new List<Block>();
 
@@ -36,6 +43,7 @@ namespace DeeperDeeper_CS
             {
                 block.position.Y = HEIGHT + rand.Next(0, 800);
                 block.position.X = rand.Next(50, WIDTH - 50);
+                score = 0;
             }
         }
 
@@ -45,7 +53,6 @@ namespace DeeperDeeper_CS
             // Setup window
             InitWindow(WIDTH, HEIGHT, TITLE);
             SetTargetFPS(60);
-
 
             // Player collision box
             Rectangle playerCol = new Rectangle(player.position.X - player.radius / 2, player.position.Y - player.radius / 2, 40, 40);
@@ -90,6 +97,16 @@ namespace DeeperDeeper_CS
                     {
                         Restart();
                     }
+                }
+
+                // Increase score
+                DrawText("Score: " + score.ToString(), 20, 20, 32, Color.WHITE);
+
+                counter++;
+                if (counter > timeBtwScore)
+                {
+                    counter = 0;
+                    score++;
                 }
 
                 // End loop
