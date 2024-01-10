@@ -61,6 +61,7 @@ namespace DeeperDeeper_CS
             for (int i = 0; i < 22; i++)
             {
                 blocks.Add(new Block(new Vector2(rand.Next(50, WIDTH - 50), HEIGHT + rand.Next(3, 750)), 100, 300, Color.BLUE));
+                blocks[i].color = blocks[i].GetRandomColor();
             }
 
             // Game loop
@@ -90,6 +91,9 @@ namespace DeeperDeeper_CS
                     {
                         block.position.Y = HEIGHT;
                         block.position.X = rand.Next(50, WIDTH - 50);
+
+                        // Set random Block Color on out of bounds
+                        block.color = block.GetRandomColor();
                     }
 
                     // Check collision between Block rect and player collision box

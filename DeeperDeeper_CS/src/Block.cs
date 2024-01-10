@@ -12,6 +12,20 @@ namespace DeeperDeeper_CS
         // Block-specific properties
         public int length;
         public float speed;
+        public Color[] blockColors =
+        {
+            Color.BLUE,
+            Color.RED,
+            Color.GREEN,
+            Color.ORANGE,
+            Color.MAGENTA,
+            Color.LIME
+        };
+
+
+        // Random object
+        Random rand = new Random();
+
 
         // Constructor, initalize values
         public Block(Vector2 pos, int length, float speed, Color color)
@@ -26,6 +40,12 @@ namespace DeeperDeeper_CS
         public void Fall()
         {
             this.position.Y -= this.speed * GetFrameTime();
+        }
+
+        // Get random Block Color
+        public Color GetRandomColor()
+        {
+            return (Color)blockColors[rand.Next(0, blockColors.Length)];
         }
 
         // Overwritten 'Draw()' method, draws a long block
