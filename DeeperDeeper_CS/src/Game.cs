@@ -51,6 +51,7 @@ namespace DeeperDeeper_CS
         public void Run()
         {
             // Setup window
+            SetConfigFlags(ConfigFlags.FLAG_MSAA_4X_HINT);
             InitWindow(WIDTH, HEIGHT, TITLE);
             SetTargetFPS(60);
 
