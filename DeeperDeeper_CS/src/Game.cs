@@ -5,7 +5,7 @@ using static Raylib_cs.Raylib;
 namespace DeeperDeeper_CS
 {
     /// <summary>
-    /// The game class holds all game logic
+    /// Holds all game logic
     /// </summary>
     public sealed class Game
     {
@@ -35,7 +35,9 @@ namespace DeeperDeeper_CS
             color: Color.RED
         );
 
-        // Restart game
+        /// <summary>
+        /// Game restart
+        /// </summary>
         public void Restart()
         {
             player.position.X = (WIDTH / 2) - player.radius / 2;
@@ -47,7 +49,9 @@ namespace DeeperDeeper_CS
             }
         }
 
-        // Run game
+        /// <summary>
+        /// Run game
+        /// </summary>
         public void Run()
         {
             // Setup window

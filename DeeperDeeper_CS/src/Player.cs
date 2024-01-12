@@ -5,7 +5,7 @@ using static Raylib_cs.Raylib;
 namespace DeeperDeeper_CS
 {
     /// <summary>
-    /// The player class handles everything related to the player; movement, drawing, and player-specific properties
+    /// Handles everything related to the player; movement, drawing, and player-specific properties
     /// </summary>
     class Player : Entity
     {
@@ -22,15 +22,18 @@ namespace DeeperDeeper_CS
             this.color = color;
         }
 
-        // Allow player movement
-        // Movement speed is multiplied by 'GetFrameTime()' here to make speed consistent across framerates
+        /// <summary>
+        /// Player movement
+        /// </summary>
         public void Move()
         {
             if (IsKeyDown(KeyboardKey.KEY_A)) { this.position.X -= this.moveSpeed * GetFrameTime(); }
             if (IsKeyDown(KeyboardKey.KEY_D)) { this.position.X += this.moveSpeed * GetFrameTime(); }
         }
 
-        // Overwritten 'Draw()' class, draws a circle
+        /// <summary>
+        /// Overwritten 'Draw()' class, draws a circle
+        /// </summary>
         public override void Draw()
         {
             DrawCircle((int)this.position.X, (int)this.position.Y, this.radius, this.color);

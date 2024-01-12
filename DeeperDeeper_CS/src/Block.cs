@@ -5,7 +5,7 @@ using static Raylib_cs.Raylib;
 namespace DeeperDeeper_CS
 {
     /// <summary>
-    /// The block class handles everything related to blocks, except block spawning
+    /// Handles everything related to blocks, except block spawning
     /// </summary>
     public class Block : Entity
     {
@@ -36,19 +36,26 @@ namespace DeeperDeeper_CS
             this.color      = color;
         }
 
-        // Make block fall upwards
+        /// <summary>
+        /// Make block fall upwards
+        /// </summary>
         public void Fall()
         {
             this.position.Y -= this.speed * GetFrameTime();
         }
 
-        // Get random Block Color
+        /// <summary>
+        /// Get random block color
+        /// </summary>
+        /// <returns>Random block color</returns>
         public Color GetRandomColor()
         {
             return (Color)blockColors[rand.Next(0, blockColors.Length)];
         }
 
-        // Overwritten 'Draw()' method, draws a long block
+        /// <summary>
+        /// Overwritten 'Draw()' function, draws a long block
+        /// </summary>
         public override void Draw()
         {
             DrawRectangle((int)this.position.X, (int)this.position.Y, this.length, 20, this.color);
