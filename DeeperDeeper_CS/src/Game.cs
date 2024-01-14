@@ -16,6 +16,7 @@ namespace DeeperDeeper_CS
 
         // Score counter
         int score = 0;
+        int highScore = 0;
         float timeBtwScore = 10f;
 
         // Time counter
@@ -108,14 +109,21 @@ namespace DeeperDeeper_CS
                     }
                 }
 
-                // Increase score
+                // Draw & Increase score
                 DrawText("Score: " + score.ToString(), 20, 20, 32, Color.WHITE);
+                DrawText("Highscore: " + highScore.ToString(), 20, 64, 32, Color.WHITE);
 
                 counter++;
                 if (counter > timeBtwScore)
                 {
                     counter = 0;
                     score++;
+
+                    // Only increase High Score if score is higher
+                    if (score > highScore)
+                    {
+                        highScore = score;
+                    }
                 }
 
                 // End loop
