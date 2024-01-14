@@ -16,7 +16,7 @@ namespace DeeperDeeper_CS
 
         // Score counter
         int score = 0;
-        int highScore = 0;
+        int highScore = HighScore.GetHighScore();
         float timeBtwScore = 10f;
 
         // Time counter
@@ -55,6 +55,8 @@ namespace DeeperDeeper_CS
         /// </summary>
         public void Run()
         {
+            HighScore.Init();
+
             // Setup window
             SetConfigFlags(ConfigFlags.FLAG_MSAA_4X_HINT);
             InitWindow(WIDTH, HEIGHT, TITLE);
@@ -123,6 +125,7 @@ namespace DeeperDeeper_CS
                     if (score > highScore)
                     {
                         highScore = score;
+                        HighScore.OverwriteHighScore(highScore);
                     }
                 }
 
